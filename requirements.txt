@@ -1,0 +1,6 @@
+numpy
+h5py
+trimesh
+pyrender
+matplotlib
+python-fcl
