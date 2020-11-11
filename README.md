@@ -2,6 +2,9 @@ This archive contains a sample of the grasping dataset.
 The two sample files are in the HDF5 format. The final dataset will be published with HDF5 files.
 This archive also includes tools to visualize grasps, generate random scenes, and render observations.
 
+# License
+The source code is released under [MIT License](LICENSE).
+
 # Requirements
 * Python3
 * `python -m pip install -r requirements.txt`
