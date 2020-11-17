@@ -1,9 +1,11 @@
-This archive contains a sample of the grasping dataset.
-The two sample files are in the HDF5 format. The final dataset will be published with HDF5 files.
-This archive also includes tools to visualize grasps, generate random scenes, and render observations.
+[ACRONYM](https://sites.google.com/nvidia.com/graspdataset) is a dataset of 17.7M simulated parallel-jaw grasps of 8872 objects. It was generated using [NVIDIA FleX](https://developer.nvidia.com/flex).
+
+This repository contains a sample of the grasping dataset and tools to visualize grasps, generate random scenes, and render observations.
+
+For using the full ACRONYM dataset, see instructions [below](#using-the-full-acronym-dataset).
 
 # License
-The source code is released under [MIT License](LICENSE).
+The source code is released under [MIT License](LICENSE). The dataset is released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
 
 # Requirements
 * Python3
@@ -12,7 +14,9 @@ The source code is released under [MIT License](LICENSE).
 # Installation
 * `python -m pip install -e .`
 
-# Visualize Grasps
+# Use Cases
+
+### Visualize Grasps
 ```
 usage: acronym_visualize_grasps.py [-h] [--num_grasps NUM_GRASPS] input [input ...]
 
@@ -29,11 +33,12 @@ optional arguments:
                         Directory used for loading meshes. (default: .)
 ```
 
-## Examples
+#### Examples
 The following command shows 40 grasps for a mug from the dataset. Grasp markers are colored green/red based on whether the simulation result was a success/failure:
->`acronym_visualize_grasps.py --mesh_root data/examples/ data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5`
 
-# Generate Random Scenes and Visualize Grasps
+`acronym_visualize_grasps.py --mesh_root data/examples/ data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5`
+
+### Generate Random Scenes and Visualize Grasps
 ```
 usage: generate_scene.py [-h] [--objects OBJECTS [OBJECTS ...]] --support
                          SUPPORT [--support_scale SUPPORT_SCALE]
@@ -59,14 +64,16 @@ optional arguments:
                         20)
 ```
 
-## Examples
+#### Examples
 This will show a randomly generated scene with a table as a support mesh and four mugs placed on top of it:
->`acronym_generate_scene.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5`
+
+`acronym_generate_scene.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5`
 
 Same as above but also showing green grasp markers (maximum: 20 per object) for successful grasps (filtering those that are in collision):
->`acronym_generate_scene.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5 --show_grasps`
 
-# Render and Visualize Observations
+`acronym_generate_scene.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5 --show_grasps`
+
+### Render and Visualize Observations
 ```
 usage: render_observations.py [-h] [--objects OBJECTS [OBJECTS ...]] --support
                               SUPPORT [--support_scale SUPPORT_SCALE]
@@ -87,16 +94,35 @@ optional arguments:
                         are rendered. (default: False)
 ```
 
-## Examples
+#### Examples
 This will show RGB image, depth, image and segmentation mask rendered from a random viewpoint):
->`acronym_render_observations.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5`
+
+`acronym_render_observations.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5`
 
 Same as above but also visualizes the scene and camera position in 3D:
->`acroacronym_render_observations.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5 --show_scene`
+
+`acroacronym_render_observations.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5 --show_scene`
 
 
-# Connecting with ACRONYM
+# Using the full ACRONYM dataset
+
+1. Download the full dataset (1.6GB): [acronym.tar.gz](https://drive.google.com/file/d/1zcPARTCQx2oeiKk7a-wdN_CN-RUVX56c/view?usp=sharing)
+2. Download the ShapeNetSem meshes from https://www.shapenet.org/
+3. Create watertight versions of the downloaded meshes:
+   1. Clone and build: https://github.com/hjwdzh/Manifold
+   2. Create a watertight mesh version assuming the object path is model.obj: `manifold model.obj temp.watertight.obj -s`
+   3. Simplify it: `simplify -i temp.watertight.obj -o model.obj -m -r 0.02`
+
+For more details about the structure of the ACRONYM dataset see: https://sites.google.com/nvidia.com/graspdataset
+
+
+# Citation
+If you use the dataset please cite:
 ```
-ln -s {PATH_TO_ACRONYM}/grasps grasps
-ln -s {PATH_TO_SHAPENET_MESHES} meshes
+@inproceedings{acronym2020,
+    title     = {{ACRONYM}: A Large-Scale Grasp Dataset Based on Simulation},
+    author    = {Eppner, Clemens and Mousavian, Arsalan and Fox, Dieter},
+    year      = {2020},
+    booktitle = {Under Review at ICRA 2021}
+}
 ```
