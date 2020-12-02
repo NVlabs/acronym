@@ -363,11 +363,11 @@ def load_mesh(filename, mesh_root_dir, scale=None):
     """
     if filename.endswith(".json"):
         data = json.load(open(filename, "r"))
-        mesh_fname = data["object"]
+        mesh_fname = data["object"].decode('utf-8')
         mesh_scale = data["object_scale"] if scale is None else scale
     elif filename.endswith(".h5"):
         data = h5py.File(filename, "r")
-        mesh_fname = data["object/file"][()]
+        mesh_fname = data["object/file"][()].decode('utf-8')
         mesh_scale = data["object/scale"][()] if scale is None else scale
     else:
         raise RuntimeError("Unknown file ending:", filename)
