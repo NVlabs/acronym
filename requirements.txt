@@ -4,3 +4,4 @@ trimesh
 pyrender
 matplotlib
 python-fcl
+shapely
