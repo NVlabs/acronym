@@ -101,7 +101,7 @@ This will show RGB image, depth, image and segmentation mask rendered from a ran
 
 Same as above but also visualizes the scene and camera position in 3D:
 
-`acroacronym_render_observations.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5 --show_scene`
+`acronym_render_observations.py --mesh_root data/examples/ --objects data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 data/examples/grasps/Mug_10f6e09036350e92b3f21f1137c3c347_0.0002682457830986903.h5 --support data/examples/grasps/Table_99cf659ae2fe4b87b72437fd995483b_0.009700376721042367.h5 --show_scene`
 
 
 # Using the full ACRONYM dataset
