@@ -1,4 +1,4 @@
-[ACRONYM](https://sites.google.com/nvidia.com/graspdataset) is a dataset of 17.7M simulated parallel-jaw grasps of 8872 objects. It was generated using [NVIDIA FleX](https://developer.nvidia.com/flex).
+[ACRONYM](https://sites.google.com/view/graspdataset) is a dataset of 17.7M simulated parallel-jaw grasps of 8872 objects. It was generated using [NVIDIA FleX](https://developer.nvidia.com/flex).
 
 This repository contains a sample of the grasping dataset and tools to visualize grasps, generate random scenes, and render observations.
 
@@ -106,7 +106,7 @@ Same as above but also visualizes the scene and camera position in 3D:
 
 # Using the full ACRONYM dataset
 
-1. Download the full dataset (1.6GB): [acronym.tar.gz](https://drive.google.com/file/d/1zcPARTCQx2oeiKk7a-wdN_CN-RUVX56c/view?usp=sharing)
+1. Download the full dataset (1.6GB): [acronym.tar.gz](https://drive.google.com/file/d/1OjykLD9YmnFdfYpH2qO8yBo-I-22vKwu/view?usp=sharing)
 2. Download the ShapeNetSem meshes from https://www.shapenet.org/
 3. Create watertight versions of the downloaded meshes:
    1. Clone and build: https://github.com/hjwdzh/Manifold
