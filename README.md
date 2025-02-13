@@ -113,7 +113,7 @@ Same as above but also visualizes the scene and camera position in 3D:
    2. Create a watertight mesh version assuming the object path is model.obj: `manifold model.obj temp.watertight.obj -s`
    3. Simplify it: `simplify -i temp.watertight.obj -o model.obj -m -r 0.02`
 
-For more details about the structure of the ACRONYM dataset see: https://sites.google.com/nvidia.com/graspdataset
+For more details about the structure of the ACRONYM dataset see: https://sites.google.com/view/graspdataset/
 
 
 # Citation
